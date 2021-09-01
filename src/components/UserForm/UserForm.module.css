@@ -37,7 +37,7 @@ img {
     opacity: 70%;
 }
 
-.formGroup input[type="text"] {
+.formGroup input {
     height: 48px;
     font-family: inherit;
     border: 1px solid rgba(102,100,100,0.64);
@@ -55,4 +55,5 @@ img {
     border: none;
     border-radius: 4px;
     height: 48px;
+    cursor: pointer;
 }
