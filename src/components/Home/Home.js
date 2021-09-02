@@ -45,7 +45,9 @@ const Home = (props) => {
                     <td>{user.age}</td>
                     <td>{user.email}</td>
                     <td>{user.created_at}</td>
-                    <td><i className="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+                    <td>
+                      <Link to={`/users/${user.id}`}><i className="fa fa-pencil-square-o" aria-hidden="true"></i></Link>
+                    </td>
                     <td className={styles.redContent}><i className="fa fa-trash" aria-hidden="true"></i></td>
                   </tr>
                 );
