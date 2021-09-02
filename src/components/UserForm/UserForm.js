@@ -16,7 +16,6 @@ const UserForm = (props) => {
   });
 
   useEffect(() => {
-    console.log(props.type);
     if (props.type === "create") {
       let currentTime = moment().locale("fa").format("YYYY/MM/DD");
       setData({

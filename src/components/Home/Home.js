@@ -21,7 +21,7 @@ const Home = (props) => {
   }
 
   const deleteUserHandler = (userId) => {
-    console.log(userId) 
+    // console.log(userId) 
     props.deleteUser(userId)
     closeModalHandler()
   }

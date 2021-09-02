@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router";
 import { Redirect } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
+import Api from './components/Api/Api'
 
 
 import UserForm from "./components/UserForm/UserForm";
@@ -50,6 +51,7 @@ const App = () => {
           <Route path="/signup"    render={(props) => <UserForm submitUser={userCreateHandler} type="create" {...props} />}/>
           <Route path="/users/:id" render={(props) => <UserForm updateUser={userUpdateHandler} type="update"  users={data} {...props} />} />
           <Route path="/users"     render={(props) => <Home     deleteUser={userDeleteHandler}   users={data} {...props} />} />
+          <Route path="/api"       component={Api} />
           <Redirect from="/" to="/users" />
         </Switch>
       </>
