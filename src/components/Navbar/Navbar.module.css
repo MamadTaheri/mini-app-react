@@ -4,6 +4,7 @@
     flex-direction: row;
     padding: 5px;
     list-style: none;
+    height: 60px;
 }
 
 .list li {

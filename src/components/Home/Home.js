@@ -1,12 +1,51 @@
-import React from "react";
+import React,  { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/ASROON.svg";
 
 
-import styles from "./Home.module.css";
+import styles from "./Home.module.css";  
 
-const Home = (props) => {
+const Home = (props) => { 
+
+  const [deleteStatus, setDeleteStatus] = useState(false)
+  const [deleteUserId, setDeleteUserId] = useState()
+
+  const deleteIconHandler = (userId) => {
+    setDeleteStatus(true)
+    setDeleteUserId(userId)
+  }
+
+  const closeModalHandler = () => {
+    setDeleteStatus(false)
+    setDeleteUserId({})
+  }
+
+  const deleteUserHandler = (userId) => {
+    console.log(userId) 
+    props.deleteUser(userId)
+    closeModalHandler()
+  }
+
   return (
+    <>
+    
+    {deleteStatus === true ?
+     <div className={styles.modal}>
+          <div className={styles.modalBox}>
+             <div className={styles.modalHeader}>
+                <h2>حذف ردیف</h2>
+                <h3 onClick={closeModalHandler}>X</h3>
+             </div>
+             <div className={styles.modalBody}>
+                <h3>آیا از حذف این ردیف مطمئن هستید؟</h3>
+                <button className={styles.btnDelete} onClick={() => {deleteUserHandler(deleteUserId)}}> حذف</button>
+             </div>
+              
+          </div>
+     </div>
+    :
+     ""}
+
     <div className={styles.container}>
       <img src={logo} alt="logo" />
       <div className={styles.box}>
@@ -48,7 +87,9 @@ const Home = (props) => {
                     <td>
                       <Link to={`/users/${user.id}`}><i className="fa fa-pencil-square-o" aria-hidden="true"></i></Link>
                     </td>
-                    <td className={styles.redContent}><i className="fa fa-trash" aria-hidden="true"></i></td>
+                    <td className={styles.redContent} onClick={() => {deleteIconHandler(user.id)}}>
+                      <i className="fa fa-trash" aria-hidden="true"></i>
+                    </td>
                   </tr>
                 );
               })}
@@ -57,6 +98,7 @@ const Home = (props) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

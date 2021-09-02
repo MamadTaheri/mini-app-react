@@ -30,6 +30,16 @@ const App = () => {
     setData(currentState) 
   }
 
+  const userDeleteHandler = (inputdata) => {
+    // console.log(inputdata)
+    let currentState = [...data]
+    let deletedIndex = currentState.findIndex(user => {
+      return user.id === inputdata
+    })
+    currentState.splice(deletedIndex,1)
+    setData(currentState) 
+  }
+
 
   return (
     <div>
@@ -39,7 +49,7 @@ const App = () => {
           
           <Route path="/signup"    render={(props) => <UserForm submitUser={userCreateHandler} type="create" {...props} />}/>
           <Route path="/users/:id" render={(props) => <UserForm updateUser={userUpdateHandler} type="update"  users={data} {...props} />} />
-          <Route path="/users"     render={(props) => <Home users={data} {...props} />} />
+          <Route path="/users"     render={(props) => <Home     deleteUser={userDeleteHandler}   users={data} {...props} />} />
           <Redirect from="/" to="/users" />
         </Switch>
       </>
