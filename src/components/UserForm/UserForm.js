@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../../images/ASROON.svg'
+import moment from 'jalali-moment'
+import { v4 } from 'uuid';
 
 import styles from './UserForm.module.css'
 
@@ -10,7 +12,22 @@ const UserForm = (props) => {
         mobile: "",
         age: "",
         email: "",
+        id: "",
+        created_at: ""
     })
+
+    useEffect(() => {
+        let currentTime = moment().locale('fa').format('YYYY/MM/DD')
+        console.log(currentTime)
+        setData({
+            name: "",
+            mobile: "",
+            age: "",
+            email: "",
+            id: v4(),
+            created_at: currentTime
+        })
+    }, [])
 
     const changeHandler = (event) => {
         setData({...data, [event.target.name]: event.target.value})
@@ -24,7 +41,7 @@ const UserForm = (props) => {
 
     return (
         <div className={styles.container}>
-            <img src={logo} />
+            <img src={logo}  alt="logo"  />
             <form className={styles.formContainer} onSubmit={submitHandler}>
                 <h3 className={styles.titr}>فرم زیر را پر کنید</h3>    
                 <div className={styles.formGroup}>

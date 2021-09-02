@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router";
+import { Redirect } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
+
 
 import UserForm from "./components/UserForm/UserForm";
 
@@ -22,11 +24,13 @@ const App = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar />  
       <>
         <Switch>
+          
           <Route path="/signup" render={(props) => <UserForm submit={userCreateHandler} type="create" {...props} />}/>
-          <Route path="/"       render={(props) => <Home users={data} {...props} />} />
+          <Route path="/users"       render={(props) => <Home users={data} {...props} />} />
+          <Redirect from="/" to="/users" />
         </Switch>
       </>
     </div>

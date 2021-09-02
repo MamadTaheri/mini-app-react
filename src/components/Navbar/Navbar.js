@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <>
             <ul className={classes.list}>
-                <li><Link to="/">خانه</Link></li>
+                <li><Link to="/users">کاربران</Link></li>
                 <li><Link to="/signup">ثبت نام</Link></li>
                 <li><Link to="/api"> دریافت از سرور </Link></li>
             </ul>
