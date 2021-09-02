@@ -1,0 +1,46 @@
+ 
+
+td {
+    text-align: center;
+    font-size: 14px;
+    padding: 1rem 0.5rem;
+}
+
+.tableRow {
+    background-color: #fff;
+}
+
+td i {
+    cursor: pointer;
+}
+
+.redContent {
+    color: red;
+} 
+ 
+
+.btnDelete {
+    color: #fff;
+    border: 1px solid red;
+    background: red;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-left: 5px;
+    width: fit-content;
+    align-self: flex-end;
+}
+
+.btnStock {
+    color: #fff;
+    border: 1px solid green;
+    background: green;
+    padding: 2px 15px;
+    border-radius: 4px;
+    font-family: inherit;
+    cursor: pointer;
+    margin-left: 5px;
+    width: fit-content;
+    text-decoration: none;
+}

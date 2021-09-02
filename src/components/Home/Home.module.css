@@ -37,6 +37,7 @@ img {
     border-radius: 4px;
     font-family: inherit;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .btnOrdinary {

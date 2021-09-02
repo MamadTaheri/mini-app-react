@@ -52,9 +52,9 @@ const Home = (props) => {
         <div className={styles.firstRow}>
           <h3>داده ها</h3>
           <div>
-            <button className={styles.btnOutline}>
+            <Link to="/api" className={styles.btnOutline}>
               دریافت اطلاعات از سرور
-            </button>
+            </Link>
             <Link to="/signup" className={styles.btnOrdinary}>
               <i className="fa fa-plus-circle" aria-hidden="true"></i>
               ساخت اکانت جدید

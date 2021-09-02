@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/ASROON.svg";
+import Stocks from "../Stocks/Stocks";
 
 import styles from "./Api.module.css";
 
@@ -28,38 +29,9 @@ const Api = () => {
               <h3 className={styles.loaderText}>
                 داده ها در حال دریافت هستند لطفا منتظر بمانید...
               </h3>
-            ) : (
-              <table>
-                <thead className={styles.header}>
-                  <tr>
-                    <th style={{ width: "15%" }}>ردیف</th>
-                    <th style={{ width: "15%" }}>نماد</th>
-                    <th style={{ width: "15%" }}>نوع بازار</th>
-                    <th style={{ width: "40%" }}>گروه نماد</th>
-                    <th style={{ width: "15%" }}>مشاهده تابلوی معاملات</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((user) => (
-                    <tr key={user.id} className={styles.tableRow}>
-                      <td>{user.id}</td>
-                      <td>{user.CoTSESymbol}</td>
-                      <td>{user.MarketName}</td>
-                      <td>{user.GroupName}</td>
-                      <td>
-                        <a
-                          target="_blank"
-                          className={styles.btnStock}
-                          href={`http://www.tsetmc.com/Loader.aspx?ParTree=151311&i=${user.InstCode}`}
-                        >
-                          مشاهده
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
+            ) : 
+             <Stocks data={data} />
+           }
           </div>
         </div>
       </div>
