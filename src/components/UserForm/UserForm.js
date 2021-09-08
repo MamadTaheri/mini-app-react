@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../images/ASROON.svg";
+import logo from "../../images/logo.png";
 import moment from "jalali-moment";
 import { v4 } from "uuid";
 
@@ -105,7 +105,7 @@ const UserForm = (props) => {
             name="email"
             value={data.email}
             onChange={changeHandler}
-            placeholder="ایمیل شما"
+            placeholder="ایمیل شما" 
           />
         </div>
         {props.type === "create" ? (

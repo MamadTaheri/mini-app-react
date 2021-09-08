@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../../images/ASROON.svg";
+import logo from "../../images/logo.png";
 import Stocks from "../Stocks/Stocks";
 
 import styles from "./Api.module.css";
