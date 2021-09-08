@@ -11,8 +11,10 @@ const Stock = ({ user }) => {
       <td>
         <a
           target="_blank"
-          className={classes.btnStock}
-          href={`http://www.tsetmc.com/Loader.aspx?ParTree=151311&i=${InstCode}`}
+          className={classes.btnStock} rel="noreferrer"
+          href={`http://www.tsetmc.com/Loader.aspx?ParTree=151311&i=${InstCode}`
+          
+        }
         >
           مشاهده
         </a>
