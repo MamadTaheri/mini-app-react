@@ -136,3 +136,8 @@ td i {
     width: fit-content;
     text-decoration: none;
 }
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

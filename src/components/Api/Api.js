@@ -2,13 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import logo from "../../images/logo.png";
 import Stocks from "../Stocks/Stocks";
+import spinner from "../../images/spinner.gif"
 
 import styles from "./Api.module.css";
 
 const Api = () => {
   const [data, setData] = useState([]);
   const [loader, setLoader] = useState(false);
-  const url = "https://www.shahrakemam.ir/api/companies";
+  const url = "https://www.irdevprogs.ir/api/tsetmc/companies";
 
   useEffect(() => {
     setLoader(true);
@@ -25,12 +26,17 @@ const Api = () => {
         <div className={styles.box}>
           <div className={styles.row}>
             {loader ? (
-              <h3 className={styles.loaderText}>
-                داده ها در حال دریافت هستند لطفا منتظر بمانید...
-              </h3>
-            ) : 
-             <Stocks data={data} />
-           }
+              <>
+                <h3 className={styles.loaderText}>
+                  داده ها در حال دریافت هستند لطفا منتظر بمانید...
+                </h3>
+                <div className={styles.spinner}>
+                  <img src={spinner} alt="spinner" title="spinner" />
+                </div>
+              </>
+            ) : (
+              <Stocks data={data} />
+            )}
           </div>
         </div>
       </div>
